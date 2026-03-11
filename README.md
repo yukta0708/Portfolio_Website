@@ -1,14 +1,8 @@
-Yukta Savdekar Portfolio
+# Yukta Savdekar Portfolio
 
-![Portfolio Screenshot](./assets/portfolio-preview.png)
-
+![Portfolio Screenshot](./src/assets/portfolio-preview.png)
 
 A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. This portfolio showcases my profile, technical skills, certifications, project work, resume, contact details, responsive layouts, animated sections, project slider, and dark/light theme support.
-
-## Screenshot
-
-![Portfolio Screenshot](./assets/portfolio-preview.png)
-
 
 ## Features
 
@@ -40,10 +34,7 @@ A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Mo
 ```bash
 npm install
 npm run dev
-Build
-bash
 
 npm run build
 
-
-
+npm installnpm run dev
