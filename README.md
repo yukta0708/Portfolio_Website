@@ -1,17 +1,21 @@
-# Yukta Savdekar Portfolio
+Yukta Savdekar Portfolio
 
-![Portfolio Preview](./video-thumb.jpg)
+![Portfolio Screenshot](./portfolio-preview.png)
 
-A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. It presents my profile, technical skills, certifications, selected projects, resume download, contact details, responsive layouts, animated sections, a project carousel, and dark/light theme support.
+A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. This portfolio showcases my profile, technical skills, certifications, project work, resume, contact details, responsive layouts, animated sections, project slider, and dark/light theme support.
+
+## Screenshot
+
+![Portfolio Preview](./portfolio-preview.png)
 
 ## Features
 
-- Responsive portfolio layout
-- Animated landing page and section-wise transitions
-- Project carousel with image-based project cards
+- Responsive portfolio design
+- Animated landing page and section-based transitions
+- Project showcase carousel
 - Resume-based About Me and Technical Skills sections
 - Dark mode and off-white light mode
-- Contact section with LinkedIn, GitHub, email, and phone links
+- Contact section with social and professional links
 
 ## Tech Stack
 
@@ -21,30 +25,25 @@ A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Mo
 - Framer Motion
 - Lucide React
 
-## Project Sections
+## Sections
 
-- Hero section with animated introduction
-- About Me section with profile highlights and education
-- Technical Skills and certifications
-- Project showcase slider
-- Contact section
+- Hero
+- About Me
+- Technical Skills
+- Projects
+- Contact
 
 ## Run Locally
 
 ```bash
 npm install
 npm run dev
-```
+Build
+bash
 
-## Build for Production
-
-```bash
 npm run build
-```
-
-## Author
 
 Yukta Savdekar
+LinkedIn: linkedin.com/in/yukta-savdekar-ab59b0272
+GitHub: github.com/yukta0708
 
-- LinkedIn: [linkedin.com/in/yukta-savdekar-ab59b0272](https://www.linkedin.com/in/yukta-savdekar-ab59b0272)
-- GitHub: [github.com/yukta0708](https://github.com/yukta0708)
