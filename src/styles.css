@@ -49,6 +49,14 @@ body {
   min-height: 100vh;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -66,6 +74,7 @@ textarea {
 
 .site-shell {
   width: min(1160px, calc(100% - 32px));
+  max-width: 100vw;
   margin: 0 auto;
   padding: 22px 0 42px;
 }
@@ -915,7 +924,7 @@ textarea {
 
 @media (max-width: 980px) {
   .embla {
-    --slide-size: 58%;
+    --slide-size: 84%;
   }
 
   .hero-three-wrap {
@@ -942,6 +951,38 @@ textarea {
     gap: 24px;
   }
 
+  .embla__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 2px 18px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .embla__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .embla__container {
+    transform: none;
+    transition: none;
+    gap: 10px;
+  }
+
+  .embla__slide {
+    flex: 0 0 calc(100% - 6px);
+    padding: 0;
+    scroll-snap-align: center;
+  }
+
+  .project-carousel-card,
+  .embla__slide.is-selected .project-carousel-card {
+    transform: none;
+    opacity: 1;
+    filter: none;
+    animation: none;
+  }
+
   .project-actions-row {
     flex-wrap: wrap;
   }
@@ -954,12 +995,11 @@ textarea {
   }
 
   .hero-three-wrap {
-    inset: -10px 0 26px 0;
-    border-radius: 22px;
+    display: none;
   }
 
   .three-hero-canvas {
-    height: 250px;
+    display: none;
   }
 
   .site-shell {
@@ -1019,7 +1059,7 @@ textarea {
 
   .hero-visual {
     order: 1;
-    min-height: 250px;
+    min-height: auto;
   }
 
   .hero-copy h1 {
@@ -1062,38 +1102,6 @@ textarea {
 
   .embla__controls {
     gap: 12px;
-  }
-
-  .embla__viewport {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 2px 18px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .embla__viewport::-webkit-scrollbar {
-    display: none;
-  }
-
-  .embla__container {
-    transform: none;
-    transition: none;
-    gap: 10px;
-  }
-
-  .embla__slide {
-    flex: 0 0 calc(100% - 6px);
-    padding: 0;
-    scroll-snap-align: center;
-  }
-
-  .project-carousel-card,
-  .embla__slide.is-selected .project-carousel-card {
-    transform: none;
-    opacity: 1;
-    filter: none;
-    animation: none;
   }
 
   .embla__btn {
@@ -1148,14 +1156,6 @@ textarea {
   .brand-mark {
     padding: 7px 10px;
     font-size: 0.79rem;
-  }
-
-  .hero-three-wrap {
-    inset: -8px 0 22px 0;
-  }
-
-  .three-hero-canvas {
-    height: 220px;
   }
 
   .project-carousel-body {
