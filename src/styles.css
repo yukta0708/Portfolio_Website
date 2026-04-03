@@ -967,8 +967,12 @@ textarea {
     padding-top: 14px;
   }
 
+  .content-stack {
+    gap: 54px;
+  }
+
   .header-wrap {
-    top: 10px;
+    top: 8px;
   }
 
   .nav-links {
@@ -1015,7 +1019,7 @@ textarea {
 
   .hero-visual {
     order: 1;
-    min-height: 280px;
+    min-height: 250px;
   }
 
   .hero-copy h1 {
@@ -1060,6 +1064,43 @@ textarea {
     gap: 12px;
   }
 
+  .embla__viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 2px 18px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .embla__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .embla__container {
+    transform: none;
+    transition: none;
+    gap: 10px;
+  }
+
+  .embla__slide {
+    flex: 0 0 calc(100% - 6px);
+    padding: 0;
+    scroll-snap-align: center;
+  }
+
+  .project-carousel-card,
+  .embla__slide.is-selected .project-carousel-card {
+    transform: none;
+    opacity: 1;
+    filter: none;
+    animation: none;
+  }
+
+  .embla__btn {
+    width: 38px;
+    height: 38px;
+  }
+
   .project-copy-head {
     flex-direction: column;
     align-items: flex-start;
@@ -1095,6 +1136,20 @@ textarea {
     width: calc(100% - 14px);
   }
 
+  .content-stack {
+    gap: 46px;
+  }
+
+  .nav-bar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    padding: 7px 10px;
+    font-size: 0.79rem;
+  }
+
   .hero-three-wrap {
     inset: -8px 0 22px 0;
   }
@@ -1111,6 +1166,10 @@ textarea {
   .project-summary,
   .project-points {
     font-size: 0.86rem;
+  }
+
+  .project-carousel-media {
+    height: 188px;
   }
 
   .floating-badge {
@@ -1130,4 +1189,30 @@ textarea {
     bottom: 54px;
   }
 
+  .contact-card {
+    padding: 12px;
+  }
+
+  .contact-form-grid input {
+    height: 48px;
+  }
+
+  .footer-bar {
+    font-size: 0.78rem;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .floating-badge {
+    display: none;
+  }
+
+  .hero-visual {
+    min-height: 220px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.9rem, 10.5vw, 2.8rem);
+  }
 }
