@@ -5,12 +5,11 @@ import {
   BookOpen,
   BriefcaseBusiness,
   CircleUserRound,
-  ChevronLeft,
-  ChevronRight,
   Code2,
   Component,
   Database,
   Download,
+  ExternalLink,
   Github,
   GraduationCap,
   Layers3,
@@ -30,8 +29,9 @@ import aboutIllustration from "./assets/about-girl-cutout.png";
 import nurseryProjectImage from "./assets/project-nursery.svg";
 import qrProjectImage from "./assets/project-qr.svg";
 import collabProjectImage from "./assets/project-collab.svg";
+import ThreeHeroCanvas from "./ThreeHeroCanvas";
 
-const resumeHref = "/Yukta-Savdekar-Resume.pdf";
+const resumeHref = `${import.meta.env.BASE_URL}Yukta-Savdekar-Resume%20(1).pdf`;
 const navItems = ["Home", "About", "Projects", "Skills", "Contact"];
 
 const skills = [
@@ -58,6 +58,7 @@ const projects = [
       "Added product listing, search, and category-based browsing.",
       "Handled inventory updates through admin-side controls.",
     ],
+    github: "https://github.com/yukta0708",
     accent: "from-emerald-400 via-teal-400 to-cyan-500",
   },
   {
@@ -70,6 +71,7 @@ const projects = [
       "Used 60-second QR expiry to reduce proxy attendance.",
       "Managed attendance, results, and leave tracking in real time.",
     ],
+    github: "https://github.com/yukta0708",
     accent: "from-fuchsia-500 via-violet-500 to-indigo-500",
   },
   {
@@ -82,6 +84,7 @@ const projects = [
       "Improved task organization and team communication flow.",
       "Optimized data handling for smoother project coordination.",
     ],
+    github: "https://github.com/yukta0708",
     accent: "from-amber-400 via-orange-400 to-rose-500",
   },
 ];
@@ -327,6 +330,14 @@ function Hero() {
         </div>
       </div>
       <div className="hero-visual">
+        <motion.div
+          className="hero-three-wrap"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+        >
+          <ThreeHeroCanvas />
+        </motion.div>
         <div className="image-blend-frame hero-frame">
           <motion.img
             src={heroIllustration}
@@ -591,9 +602,49 @@ function ProjectCard({ project, index, isSelected, onSelect }) {
               <span className="project-label">Project 0{index + 1}</span>
               <h3>{project.title}</h3>
             </div>
+            <a
+              className="project-github-link"
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Open ${project.title} on GitHub`}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Github size={14} />
+              GitHub
+            </a>
           </div>
           <p className="project-summary">{project.summary}</p>
-          <p className="project-mini-theory">{project.bullets[0]}</p>
+          <div className="stack-tags">
+            {project.stack.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+          <ul className="project-points">
+            {project.bullets.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+          <div className="project-actions-row">
+            <a
+              className="mini-btn filled"
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Github size={14} />
+              View Code
+            </a>
+            <a
+              className="mini-btn"
+              href="#contact"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <ExternalLink size={14} />
+              Discuss Project
+            </a>
+          </div>
         </div>
       </article>
     </motion.article>

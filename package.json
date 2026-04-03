@@ -12,11 +12,12 @@
     "framer-motion": "^12.5.0",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "three": "^0.183.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^5.0.2",
     "@tailwindcss/vite": "^4.1.12",
+    "@vitejs/plugin-react": "^5.0.2",
     "tailwindcss": "^4.1.12",
     "vite": "^7.1.3"
   }

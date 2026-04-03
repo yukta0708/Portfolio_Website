@@ -11,6 +11,7 @@
   --line: rgba(255, 255, 255, 0.09);
   --accent: #ff8a1c;
   --accent-2: #f6b24f;
+  --accent-3: #67e8f9;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
 }
 
@@ -44,6 +45,8 @@ body {
     radial-gradient(circle at top right, rgba(255, 138, 28, 0.1), transparent 28%),
     linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 38%, var(--bg) 100%);
   color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 a {
@@ -80,6 +83,7 @@ textarea {
 }
 
 .nav-bar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,11 +113,12 @@ textarea {
 .nav-links a {
   font-size: 0.88rem;
   color: var(--muted);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-links a:hover {
   color: var(--text);
+  transform: translateY(-1px);
 }
 
 .nav-actions {
@@ -190,6 +195,14 @@ textarea {
   gap: 34px;
 }
 
+.hero-copy,
+.section-copy,
+.project-carousel-body,
+.contact-info-item,
+.contact-form-grid label {
+  min-width: 0;
+}
+
 #about {
   margin-top: 26px;
 }
@@ -204,7 +217,7 @@ textarea {
 
 .hero-copy h1 {
   max-width: 8ch;
-  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
   font-weight: 700;
 }
 
@@ -256,6 +269,35 @@ textarea {
   position: relative;
 }
 
+.hero-three-wrap {
+  position: absolute;
+  inset: -24px -10px 18px -10px;
+  border-radius: 28px;
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 0;
+}
+
+.three-hero-canvas {
+  width: 100%;
+  height: clamp(280px, 38vw, 450px);
+  background:
+    radial-gradient(circle at 22% 30%, rgba(121, 255, 225, 0.12), transparent 48%),
+    radial-gradient(circle at 75% 68%, rgba(255, 168, 87, 0.14), transparent 52%),
+    linear-gradient(180deg, rgba(8, 17, 40, 0.4), rgba(3, 8, 23, 0.05));
+}
+
+.light .hero-three-wrap {
+  border: 1px solid rgba(19, 45, 88, 0.08);
+}
+
+.light .three-hero-canvas {
+  background:
+    radial-gradient(circle at 20% 26%, rgba(14, 165, 233, 0.22), transparent 50%),
+    radial-gradient(circle at 76% 70%, rgba(251, 146, 60, 0.2), transparent 54%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(236, 243, 255, 0.34));
+}
+
 .hero-visual img,
 .art-card img {
   width: 100%;
@@ -279,10 +321,21 @@ textarea {
     contrast(1.02);
 }
 
+.light .hero-visual img,
+.light .blend-image {
+  filter:
+    drop-shadow(0 20px 42px rgba(57, 69, 94, 0.18))
+    saturate(1.03)
+    contrast(1.01)
+    brightness(1.04);
+}
+
 .hero-character {
   max-width: 500px;
   margin-inline: auto;
   transform-origin: center bottom;
+  position: relative;
+  z-index: 2;
 }
 
 .about-character {
@@ -309,6 +362,11 @@ textarea {
   border-radius: 18px;
   font-weight: 800;
   box-shadow: var(--shadow);
+  z-index: 3;
+}
+
+.light .floating-badge {
+  box-shadow: 0 14px 28px rgba(80, 90, 120, 0.18);
 }
 
 .badge-hi {
@@ -330,6 +388,21 @@ textarea {
   bottom: 70px;
   color: #fff;
   background: linear-gradient(135deg, #6d5dfc, #8b5cf6);
+}
+
+.light .badge-hi {
+  color: #1c2e4d;
+  background: linear-gradient(135deg, #ffd58f, #ffae65);
+}
+
+.light .badge-ai {
+  color: #1f2748;
+  background: linear-gradient(135deg, #ffc0ca, #f8be66);
+}
+
+.light .badge-ui {
+  color: #142f56;
+  background: linear-gradient(135deg, #a9d2ff, #9ec5ff);
 }
 
 .section-copy h2,
@@ -411,6 +484,10 @@ textarea {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.contact-info-item span {
+  overflow-wrap: anywhere;
+}
+
 .stack-section {
   display: grid;
   gap: 22px;
@@ -438,7 +515,7 @@ textarea {
   color: var(--muted);
   text-align: center;
   line-height: 1.82;
-  font-size: 0.9rem;
+  font-size: 0.94rem;
 }
 
 .skills-grid {
@@ -537,7 +614,9 @@ textarea {
   width: 100%;
   border-radius: var(--card-radius);
   overflow: hidden;
-  background: var(--card-bg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    var(--card-bg);
   box-shadow: var(--shadow);
   transform: scale(0.9);
   opacity: 0.34;
@@ -551,7 +630,7 @@ textarea {
 }
 
 .embla__slide.is-selected .project-carousel-card {
-  transform: scale(1.03);
+  transform: scale(1.03) translateY(-3px);
   opacity: 1;
   background: var(--card-bg-active);
   filter: saturate(1);
@@ -560,7 +639,9 @@ textarea {
 .project-carousel-media {
   height: 220px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    radial-gradient(circle at 78% 20%, rgba(103, 232, 249, 0.2), transparent 48%),
+    rgba(255, 255, 255, 0.03);
 }
 
 .project-carousel-image {
@@ -577,7 +658,7 @@ textarea {
 
 .project-carousel-body {
   display: grid;
-  gap: 12px;
+  gap: 13px;
   padding: 18px;
 }
 
@@ -588,12 +669,12 @@ textarea {
 }
 
 .stack-tags span {
-  padding: 5px 9px;
+  padding: 5px 10px;
   border-radius: 999px;
   font-size: 0.68rem;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .project-copy-head {
@@ -627,8 +708,8 @@ textarea {
 
 .project-summary {
   margin: 0;
-  font-size: 0.94rem;
-  line-height: 1.86;
+  font-size: 0.93rem;
+  line-height: 1.74;
 }
 
 .project-mini-theory {
@@ -636,6 +717,26 @@ textarea {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.8;
+}
+
+.project-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.76rem;
+  color: var(--text);
+}
+
+.project-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
 }
 
 @keyframes titleFloat {
@@ -814,7 +915,15 @@ textarea {
 
 @media (max-width: 980px) {
   .embla {
-    --slide-size: 52%;
+    --slide-size: 58%;
+  }
+
+  .hero-three-wrap {
+    inset: -20px -8px 16px -8px;
+  }
+
+  .three-hero-canvas {
+    height: clamp(250px, 42vw, 360px);
   }
 
   .hero-grid,
@@ -830,6 +939,11 @@ textarea {
   .hero-grid,
   .two-col-section {
     align-items: start;
+    gap: 24px;
+  }
+
+  .project-actions-row {
+    flex-wrap: wrap;
   }
 
 }
@@ -839,8 +953,18 @@ textarea {
     --slide-size: 86%;
   }
 
+  .hero-three-wrap {
+    inset: -10px 0 26px 0;
+    border-radius: 22px;
+  }
+
+  .three-hero-canvas {
+    height: 250px;
+  }
+
   .site-shell {
     width: min(100% - 20px, 1120px);
+    padding-top: 14px;
   }
 
   .header-wrap {
@@ -859,6 +983,7 @@ textarea {
     border: 1px solid var(--line);
     border-radius: 18px;
     background: color-mix(in srgb, var(--panel) 96%, transparent);
+    z-index: 30;
   }
 
   .nav-links.open {
@@ -890,11 +1015,21 @@ textarea {
 
   .hero-visual {
     order: 1;
+    min-height: 280px;
   }
 
   .hero-copy h1 {
     max-width: 100%;
-    font-size: clamp(2.2rem, 11vw, 3.8rem);
+    font-size: clamp(2.1rem, 11vw, 3.4rem);
+  }
+
+  .cta-row {
+    width: 100%;
+  }
+
+  .cta-row .primary-pill,
+  .cta-row .ghost-pill {
+    width: 100%;
   }
 
   .eyebrow,
@@ -919,6 +1054,80 @@ textarea {
 
   .about-frame {
     min-height: auto;
+  }
+
+  .embla__controls {
+    gap: 12px;
+  }
+
+  .project-copy-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-github-link {
+    height: 30px;
+  }
+
+  .project-actions-row {
+    width: 100%;
+  }
+
+  .project-actions-row .mini-btn {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+
+  .footer-bar {
+    padding-top: 32px;
+    font-size: 0.82rem;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .site-shell {
+    width: calc(100% - 14px);
+  }
+
+  .hero-three-wrap {
+    inset: -8px 0 22px 0;
+  }
+
+  .three-hero-canvas {
+    height: 220px;
+  }
+
+  .project-carousel-body {
+    padding: 14px;
+    gap: 11px;
+  }
+
+  .project-summary,
+  .project-points {
+    font-size: 0.86rem;
+  }
+
+  .floating-badge {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+
+  .badge-hi {
+    right: 40px;
+    top: 44px;
+  }
+
+  .badge-ui {
+    left: 10px;
+    bottom: 54px;
   }
 
 }

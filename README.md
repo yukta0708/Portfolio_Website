@@ -1,17 +1,17 @@
 # Yukta Savdekar Portfolio
 
-![Portfolio Screenshot](./src/assets/portfolio-preview.png)
+![Portfolio Preview](./portfolio-preview.png)
 
-A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. This portfolio showcases my profile, technical skills, certifications, project work, resume, contact details, responsive layouts, animated sections, project slider, and dark/light theme support.
+A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. It presents my profile, technical skills, certifications, selected projects, resume download, contact details, responsive layouts, animated sections, a project carousel, and dark/light theme support.
 
 ## Features
 
-- Responsive portfolio design
-- Animated landing page and section-based transitions
-- Project showcase carousel
+- Responsive portfolio layout
+- Animated landing page and section-wise transitions
+- Project carousel with image-based project cards
 - Resume-based About Me and Technical Skills sections
 - Dark mode and off-white light mode
-- Contact section with social and professional links
+- Contact section with LinkedIn, GitHub, email, and phone links
 
 ## Tech Stack
 
@@ -21,20 +21,30 @@ A personal portfolio website built with React, Vite, Tailwind CSS, and Framer Mo
 - Framer Motion
 - Lucide React
 
-## Sections
+## Project Sections
 
-- Hero
-- About Me
-- Technical Skills
-- Projects
-- Contact
+- Hero section with animated introduction
+- About Me section with profile highlights and education
+- Technical Skills and certifications
+- Project showcase slider
+- Contact section
 
 ## Run Locally
 
 ```bash
 npm install
 npm run dev
+```
 
+## Build for Production
+
+```bash
 npm run build
+```
 
-npm installnpm run dev
+## Author
+
+Yukta Savdekar
+
+- LinkedIn: [linkedin.com/in/yukta-savdekar-ab59b0272](https://www.linkedin.com/in/yukta-savdekar-ab59b0272)
+- GitHub: [github.com/yukta0708](https://github.com/yukta0708)
